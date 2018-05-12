@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Hearing_Expert_System</string>
+    <string name="app_name">Hearing Expret System</string>
+    <string name="RegistText">No account yet? Create one</string>
+    <string name="NameError">Name fild is required</string>
+    <string name="Pass_Error">Password is required</string>
+    <string name="Conf_Pass_Error">Conf_Password Is Required</string>
+    <string name="Conf_Pass_Match_Error">Password Not Match</string>
+    <string name="LoginText">Already have account</string>
+
 </resources>

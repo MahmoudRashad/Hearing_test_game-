@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Hearing_Expert_System.iml" filepath="$PROJECT_DIR$/Hearing_Expert_System.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HearingExpretSystem.iml" filepath="$PROJECT_DIR$/HearingExpretSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
