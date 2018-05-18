@@ -1,12 +1,11 @@
 package com.example.ahmed.hearingexpretsystem;
 
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.ahmed.hearingexpretsystem.Fragments.Login_Fragmet;
-import com.example.ahmed.hearingexpretsystem.Fragments.Regist_Fragment;
-import com.example.ahmed.hearingexpretsystem.Fragments.Splash_Fragment;
+import com.example.ahmed.hearingexpretsystem.Fragment.LoginFragments.Login_Fragmet;
+import com.example.ahmed.hearingexpretsystem.Fragment.LoginFragments.Regist_Fragment;
+import com.example.ahmed.hearingexpretsystem.Fragment.LoginFragments.Splash_Fragment;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -9,8 +9,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 
+import com.example.ahmed.hearingexpretsystem.Utils.KeyVal;
 import com.example.ahmed.hearingexpretsystem.model.User;
 
 import java.util.ArrayList;
@@ -21,70 +23,109 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //    public DatabaseHelper context=DatabaseHelper.this;
 
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 1;
 
     // Database Name
-    private static final String DATABASE_NAME = "Hearing_Database";
+    public static final String DATABASE_NAME = "Hearing_Database";
 
     // DOCTOR table name
-    private static final String TABLE_DOCTOR = "doctor";
+    public static final String TABLE_DOCTOR = "doctor";
 
 
     // DOCTOR Table Columns names
-    private static final String COLUMN_DOCTOR_ID = "doctor_id";
-    private static final String COLUMN_DOCTOR_NAME = "doctor_name";
-    private static final String COLUMN_DOCTOR_EMAIL = "doctor_email";
-    private static final String COLUMN_DOCTOR_PASSWORD = "doctor_password";
+    public static final String COLUMN_DOCTOR_ID = "doctor_id";
+    public static final String COLUMN_DOCTOR_NAME = "doctor_name";
+    public static final String COLUMN_DOCTOR_EMAIL = "doctor_email";
+    public static final String COLUMN_DOCTOR_PASSWORD = "doctor_password";
 
     // create table DOCTOR
-    private String CREATE_DOCTOR_TABLE = "CREATE TABLE " + TABLE_DOCTOR + "("
+    public String CREATE_DOCTOR_TABLE = "CREATE TABLE " + TABLE_DOCTOR + "("
             + COLUMN_DOCTOR_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_DOCTOR_NAME + " TEXT,"
             + COLUMN_DOCTOR_EMAIL + " TEXT," + COLUMN_DOCTOR_PASSWORD + " TEXT" + ")";
 
     // drop table sql query DOCTOR
-    private String DROP_DOCTOR_TABLE = "DROP TABLE IF EXISTS " + TABLE_DOCTOR;
+    public String DROP_DOCTOR_TABLE = "DROP TABLE IF EXISTS " + TABLE_DOCTOR;
 
 
 
 
 
-    // Patient table name
-    private static final String TABLE_PATIENT = "patient";
+    // Patient table Patient
+    public static final String TABLE_PATIENT = "patient";
 
     // patient Table Columns names
-    private static final String COLUMN_PATIENT_ID = "patient_id";
-    private static final String COLUMN_PATIENT_NAME = "patient_name";
-    private static final String COLUMN_PATIENT_AGE = "patient_age";
-    private static final String COLUMN_MENDER_DOCTOR = "mender_doctor";
+    public static final String COLUMN_PATIENT_ID = "patient_id";
+    public static final String COLUMN_PATIENT_NAME = "patient_name";
+    public static final String COLUMN_PATIENT_AGE = "patient_age";
+    public static final String COLUMN_MENDER_DOCTOR = "mender_doctor";
 
     // create table patient
-    private String CREATE_Patient_TABLE = "CREATE TABLE " + TABLE_PATIENT + "("
+    public String CREATE_Patient_TABLE = "CREATE TABLE " + TABLE_PATIENT + "("
             + COLUMN_PATIENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_PATIENT_NAME + " TEXT,"
             + COLUMN_PATIENT_AGE + " INTEGER," + COLUMN_MENDER_DOCTOR + " TEXT" + ")";
 
     // drop table sql query
-    private String DROP_PATIENT_TABLE = "DROP TABLE IF EXISTS " + TABLE_PATIENT;
+    public String DROP_PATIENT_TABLE = "DROP TABLE IF EXISTS " + TABLE_PATIENT;
 
 
 
 
     // test table name
-    private static final String TABLE_TEST = "test";
+    public static final String TABLE_TEST = "test";
 
     // patient Table Columns names
-    private static final String COLUMN_TEST_ID = "test_id";
-    private static final String COLUMN_TEST_PATIENT_ID = "patient_id";
-    private static final String COLUMN_TEST_DOCTOR_ID = "doctor_id";
-    private static final String COLUMN_TETS_NOISE_TYPE = "noise_type";
-    private static final String COLUMN_TETS_PATIENT_DEGREE = "patient_degree";
+    public static final String COLUMN_TEST_ID = "test_id";
+    public static final String COLUMN_TEST_PATIENT_ID = "patient_id";
+    public static final String COLUMN_TEST_DOCTOR_ID = "doctor_id";
+    public static final String COLUMN_TETS_NOISE_TYPE = "noise_type";
+    public static final String COLUMN_TETS_PATIENT_DEGREE = "patient_degree";
 
     // create table patient
-    private String CREATE_TEST_TABLE = "CREATE TABLE " + TABLE_TEST + "("
+    public String CREATE_TEST_TABLE = "CREATE TABLE " + TABLE_TEST + "("
             + COLUMN_TEST_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_TEST_PATIENT_ID + " INTEGER,"
             + COLUMN_TEST_DOCTOR_ID + " INTEGER," +COLUMN_TETS_PATIENT_DEGREE + " TEXT," + COLUMN_TETS_NOISE_TYPE + " TEXT" + ")";
 
     // drop table sql query
-    private String DROP_TEST_TABLE = "DROP TABLE IF EXISTS " + TABLE_TEST;
+    public String DROP_TEST_TABLE = "DROP TABLE IF EXISTS " + TABLE_TEST;
+
+
+
+
+    // test table Signals
+    public static final String TABLE_SIGNALS = "signals";
+
+    // patient Table Columns names
+    public static final String COLUMN_SIGNALS_ID = "signals_id";
+    public static final String COLUMN_SIGNALS_TEXT = "signals_text";
+    public static final String COLUMN_SIGNALS_TEST_ID = "signals_test_id";
+    public static final String COLUMN_SIGNALS_IMAGE_ID = "signals_test_id";
+
+
+    // create table patient
+    public String CREATE_SIGNALS_TABLE = "CREATE TABLE " + TABLE_SIGNALS + "("
+            + COLUMN_SIGNALS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_SIGNALS_TEXT + " TEXT," + COLUMN_SIGNALS_TEST_ID + " INTEGER" +COLUMN_SIGNALS_IMAGE_ID + " INTEGER" + ")";
+
+    // drop table sql query
+    public String DROP_SIGNALS_TABLE = "DROP TABLE IF EXISTS " + TABLE_SIGNALS;
+
+
+
+
+
+    // test table imaged
+    public static final String TABLE_IMAGES = "images";
+
+    // patient Table Columns names
+    public static final String COLUMN_IMAGES_ID = "images_id";
+    public static final String COLUMN_IMAGES_TEXT = "images_text";
+
+
+    // create table patient
+    public String CREATE_IMAGES_TABLE = "CREATE TABLE " + TABLE_IMAGES + "("
+            + COLUMN_IMAGES_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_IMAGES_TEXT + " TEXT" + ")";
+
+    // drop table sql query
+    public String DROP_IMAGES_TABLE = "DROP TABLE IF EXISTS " + TABLE_IMAGES;
 
 
 
@@ -99,7 +140,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        instance=new DatabaseHelper(context);
     }
 
-    private static DatabaseHelper singleton;
+    public static DatabaseHelper singleton;
 
 
 
@@ -121,6 +162,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_DOCTOR_TABLE);
         db.execSQL(CREATE_Patient_TABLE);
         db.execSQL(CREATE_TEST_TABLE);
+        db.execSQL(CREATE_SIGNALS_TABLE);
+        db.execSQL(CREATE_IMAGES_TABLE);
     }
 
 
@@ -131,6 +174,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(DROP_DOCTOR_TABLE);
         db.execSQL(DROP_PATIENT_TABLE);
         db.execSQL(DROP_TEST_TABLE);
+        db.execSQL(DROP_SIGNALS_TABLE);
+        db.execSQL(DROP_IMAGES_TABLE);
         // Create tables again
         onCreate(db);
 
@@ -287,11 +332,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * This method to check user exist or not
      *
-     * @param email
+     * @param name
      * @param password
      * @return true/false
      */
-    public boolean checkUser(String email, String password) {
+    public boolean checkUser(String name, String password) {
 
         // array of columns to fetch
         String[] columns = {
@@ -299,10 +344,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         };
         SQLiteDatabase db = this.getReadableDatabase();
         // selection criteria
-        String selection = COLUMN_DOCTOR_EMAIL + " = ?" + " AND " + COLUMN_DOCTOR_PASSWORD + " = ?";
+        String selection = COLUMN_DOCTOR_NAME+ " = ?" + " AND " + COLUMN_DOCTOR_PASSWORD + " = ?";
 
         // selection arguments
-        String[] selectionArgs = {email, password};
+        String[] selectionArgs = {name, password};
 
         // query user table with conditions
         /**
@@ -328,4 +373,45 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return false;
     }
+
+
+    public List<Object> select(String queryString) {
+
+            SQLiteDatabase database = this.getReadableDatabase();
+            List<Object> list = new ArrayList<Object>();
+            Cursor cursor = database.rawQuery(queryString, null);
+
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    do {
+                        ContentValues content = new ContentValues();
+                        String[] columnNames = cursor.getColumnNames();
+                        for (String columnName : columnNames) {
+                            content.put(columnName, cursor.getString(cursor
+                                    .getColumnIndex(columnName)));
+                        }
+                        list.add(content);
+                    } while (cursor.moveToNext());
+                }
+            }try {
+                cursor.close();
+
+            }catch (Exception e){
+                Log.d("select_exception", e.getMessage());
+                e.printStackTrace();
+            }
+            try {
+                database.close();
+
+            }catch (Exception e)
+            {
+                Log.d( "close  database ",e.getMessage());
+                e.printStackTrace();
+            }
+            return list;
+
+
+    }
+
+
 }

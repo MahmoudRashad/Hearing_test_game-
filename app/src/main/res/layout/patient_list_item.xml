@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="5"
+
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/P_name"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="10dp"
+            android:maxLines="2"
+            android:scrollbars="horizontal"
+            android:textColor="@color/black"
+            android:text="mahmoud rashaad"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/P_age"
+            android:gravity="center"
+            android:maxLines="2"
+            android:scrollbars="horizontal"
+            android:textSize="10dp"
+            android:textColor="@color/black"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="24"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/Noise_type"
+            android:layout_width="0dp"
+            android:maxLines="2"
+            android:scrollbars="horizontal"
+            android:gravity="center"
+            android:textSize="10dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:text="cafetria"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:id="@+id/Test_Degree"
+            android:maxLines="2"
+            android:scrollbars="horizontal"
+            android:textSize="10dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:text="9/10"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:scrollbars="horizontal"
+            android:id="@+id/Dr_name"
+            android:textSize="10dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:text="mahmoud rashad"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
